@@ -1,0 +1,13 @@
+class Solution:
+    def distributeCandies(self, n: int, limit: int) -> int:
+        counter=0
+        myset = set()
+        for i in range(limit + 1):
+            for j in range(limit + 1):
+                k = n - i - j
+                if 0 <= k <= limit:
+                    tup = tuple([i, j, k])
+                    if tup not in myset:
+                        myset.add(tup)
+                        counter += 1
+        return counter
